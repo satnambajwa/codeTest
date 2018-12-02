@@ -1,0 +1,75 @@
+
+<div class="container-fluid">
+    <h1>Welcome to {{ title }}!</h1>
+<!--    <button  type="button" class="btn btn-primary" (click)="listData()">Click to list Data</button>-->
+    
+    <div class="row">
+        <div class="col-sm-4" *ngIf="list.length !== 0">
+          <div *ngFor="let item of list[0];let i = index">
+            <h2><span>{{i+1}} ) </span>{{item.user.name}}</h2>
+            <p>{{item.text}}</p>
+            <span>{{item.created_at | date:'fullDate'}}</span>
+            <div>
+              <ng-container *ngIf="item.entities.user_mentions">
+                        <a *ngFor="let user of item.entities.user_mentions" class="btn btn-primary sat-m" href="#" role="button">
+                          {{user.screen_name}}
+                        </a>
+              </ng-container>
+              <ng-container *ngIf="item.retweet_count >= 1 && item.retweeted_status">
+                        <a *ngFor="let user of item.retweeted_status.entities.user_mentions" class="btn btn-primary sat-m" href="#" role="button">
+                            {{user.screen_name}}
+                        </a>
+              </ng-container>
+            </div>
+          </div>
+      </div>
+      <div class="col-sm-4" *ngIf="list.length !== 0">
+          <div *ngFor="let item of list[1];let i = index">
+              <h2><span>{{i+1}} ) </span>{{item.user.name}}</h2>
+              <p>{{item.text}}</p>
+              <span>{{item.created_at | date:'fullDate'}}</span>
+              <div *ngIf="item.entities.user_mentions">
+                  <span>For mentions</span>
+                  <ul>
+                    <li *ngFor="let user of item.entities.user_mentions">
+                      {{user.screen_name}}
+                    </li>
+                  </ul>
+              </div>
+              <div *ngIf="item.retweet_count >= 1 && item.retweeted_status">
+                  <span>For retweeted</span>
+                  <ul>
+                    <li *ngFor="let user of item.retweeted_status.entities.user_mentions">
+                      {{user.screen_name}}
+                    </li>
+                  </ul>
+              </div>
+            </div>
+      </div>
+      <div class="col-sm-4" *ngIf="list.length !== 0">
+          <div *ngFor="let item of list[2];let i = index">
+              <h2><span>{{i+1}} ) </span>{{item.user.name}}</h2>
+              <p>{{item.text}}</p>
+              <span>{{item.created_at | date:'fullDate'}}</span>
+              <div *ngIf="item.entities.user_mentions">
+                  <span>For mentions</span>
+                  <ul>
+                    <li *ngFor="let user of item.entities.user_mentions">
+                      {{user.screen_name}}
+                    </li>
+                  </ul>
+              </div>
+              <div *ngIf="item.retweet_count >= 1 && item.retweeted_status">
+                  <span>For retweeted</span>
+                  <ul>
+                    <li *ngFor="let user of item.retweeted_status.entities.user_mentions">
+                      {{user.screen_name}}
+                    </li>
+                  </ul>
+              </div>
+            </div>
+      </div>
+    
+    </div>
+  </div>
+  

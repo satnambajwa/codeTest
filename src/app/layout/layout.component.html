@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+
+      <form>
+
+          <div class="form-group">
+            <label>Tweet Count</label>
+            <input class="form-control" name="count" [(ngModel)]= "count" placeholder="Enter number of tweet">
+            <small id="emailHelp" class="form-text text-muted">Any number but less than equal to 30.</small>
+          </div>
+          <div class="form-group">
+            <label>Page Color</label>
+            <input [(colorPicker)]="pageColor" (cpSliderDragEnd)="colorPicker(pageColor)"  name="pageColor" [(ngModel)]= "pageColor"  >
+          </div>
+          <div class="form-group">
+              <label for="order">Order</label>
+              <input class="form-control" name="order" [(ngModel)]= "order"  placeholder="order">
+          </div>
+          <div class="form-group">
+              <label for="range">Range</label>
+              <input class="form-control" name="timeRange" [(ngModel)]= "timeRange"  placeholder="range">
+          </div>
+          <button name="saveData" (click)="saveChanges()">Save Changes</button>
+        </form>
+
+  </div>
+    <!-- Content here -->
+</div>
